@@ -36,9 +36,13 @@ public class BaseGarageManage {
 
     public boolean useSite(String name,String carno)
     {
-        cars.put(name,new CarInfo(name,carno));
-        free_site_num--;
-        return true;
+        if(free_site_num > 0)
+        {
+           cars.put(name,new CarInfo(name,carno));
+           free_site_num--;
+           return true;
+        }
+        return false;
     }
 
     public boolean freeSite(String name)
